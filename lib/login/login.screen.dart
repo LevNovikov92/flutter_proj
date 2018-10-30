@@ -8,22 +8,53 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/background.png"),
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(Color(), BlendMode.clear)),
+            image: AssetImage("assets/background.png"),
+            fit: BoxFit.cover,
+          ),
         ),
-        child: Column(
-          children: <Widget>[
-            Image.asset("assets/alarm.png"),
-            TextField(
-              onChanged: null,
-              decoration: new InputDecoration(
-                hintText: 'Type something',
+        child: Container(
+          margin: EdgeInsets.only(top: 134.0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(bottom: 32.0),
+                child: Image.asset("assets/alarm.png"),
               ),
-            ),
-          ],
-        ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.only(bottom: 4.0),
+                decoration: BoxDecoration(color: Colors.lightBlue[600]),
+                child: TextField(
+                  onChanged: null,
+                  decoration: new InputDecoration.collapsed(
+                    hintText: 'Login...',
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.only(top: 4.0),
+                decoration: BoxDecoration(color: Colors.lightBlue[600]),
+                child: TextField(
+                  onChanged: null,
+                  decoration: new InputDecoration.collapsed(
+                    hintText: 'Password...',
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  child: FlatButton(onPressed: _loginClickListener, child: Text("LOGIN")),
+                ),
+              )
+            ],
+          ),
+        )
       ),
     );
+  }
+
+  void _loginClickListener() {
+
   }
 }
