@@ -23,19 +23,20 @@ class LoginScreenState extends State<LoginScreen> {
       body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/background.png"),
+                image: AssetImage("assets/c.jpg"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                    Colors.lightBlue.withAlpha(50), BlendMode.color)),
+                    Colors.lightBlue.withAlpha(50), BlendMode.color)
+            ),
           ),
           child: Container(
-            margin: EdgeInsets.only(top: 134.0),
+            margin: EdgeInsets.only(top: 250.0),
             child: Column(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(bottom: 32.0),
-                  child: Image.asset("assets/alarm.png"),
-                ),
+//                Container(
+//                  margin: EdgeInsets.only(bottom: 32.0),
+//                  child: Image.asset("assets/alarm.png"),
+//                ),
                 Container(
                     padding: EdgeInsets.all(20.0),
                     margin: EdgeInsets.only(bottom: 4.0),
@@ -81,7 +82,8 @@ class LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-          )),
+          )
+      ),
     );
   }
 
