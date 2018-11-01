@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_proj/widgets/custom.button.dart';
 import 'package:flutter_proj/domain/city.dart';
+import 'package:flutter_proj/advisor.selection/advisor.search.screen.dart';
 
 class CitySearchWidget extends StatefulWidget {
   @override
   CitySearchState createState() => CitySearchState();
 }
 
-class CitySearchState extends State<CitySearchWidget> {
+class CitySearchState extends State<CitySearchWidget> implements CitySelectionListener {
   List<City> citiesList = [];
   List<City> suggestions = [];
 
@@ -40,36 +40,53 @@ class CitySearchState extends State<CitySearchWidget> {
   Widget build(BuildContext context) {
     return Flexible(
         child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TextField(
-          onChanged: _onTextChanged,
-          decoration: new InputDecoration(
-            hintText: 'Type something',
-          ),
-        ),
-        Flexible(
-            child: ListView.builder(
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) =>
-              CityEntry(suggestions[index]),
-          itemCount: suggestions.length,
-        ))
-      ],
-    ));
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              onChanged: _onTextChanged,
+              decoration: new InputDecoration(
+                hintText: 'Type something',
+              ),
+            ),
+            Flexible(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) =>
+                      CityEntry(
+                        suggestions[index],
+                        this
+                      ),
+                  itemCount: suggestions.length,
+                ))
+          ],
+        ));
+  }
+
+  @override
+  void onCitySelected(City city) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdviserSearchScreen()));
   }
 }
 
 class CityEntry extends StatelessWidget {
   final City city;
+  final CitySelectionListener listener;
 
-  CityEntry(this.city);
+  CityEntry(this.city, this.listener);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10.0),
+    return GestureDetector(
+      onTap: _onTap,
       child: Text(city.name),
     );
   }
+
+  void _onTap() {
+    listener.onCitySelected(city);
+  }
+}
+
+abstract class CitySelectionListener {
+  void onCitySelected(City city);
 }
