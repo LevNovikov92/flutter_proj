@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_proj/widgets/custom.button.dart';
 import 'package:flutter_proj/city.selection/city.selection.screen.dart';
 import 'package:flutter_proj/login/login.screen.dart';
+import 'package:flutter_proj/onboarding/app.description.screen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new LoginScreen(),
+//      home: new LoginScreen(),
+      home: AppDescriptionScreen()
     );
   }
 }

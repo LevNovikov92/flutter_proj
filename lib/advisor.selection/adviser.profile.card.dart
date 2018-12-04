@@ -18,7 +18,7 @@ class AdviserProfileCard extends StatelessWidget {
     return GestureDetector(
       onTap: _onClick,
       child: Container(
-        width: 300.0,
+        width: 250.0,
         margin: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           border: Border.all(width: 1.0, color: Colors.grey),
