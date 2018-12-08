@@ -7,28 +7,34 @@ class AppDescriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Center(
-            child: Container(
-              child: Text("App logo"),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 130.0),
+              child: Center(
+                child: Text("App logo"),
+              ),
             ),
-          ),
-          Center(
-            child: Container(
-              child: Text("The app to connect you with local property advice",
-                textAlign: TextAlign.center,),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(40.0),
+                child: Center(
+                  child: Text("The app to connect you with local property advice",
+                    textAlign: TextAlign.center, style: TextStyle(fontSize: 30.0),),
+                ),
+              )
             ),
-          ),
-          Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: StepperWidget(3, 0, "Get started", () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ScreenshotsPager()));
-              }),
-            ),
-          )
-        ],
+            Container(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: StepperWidget(3, 0, "Get started", () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ScreenshotsPager()));
+                }),
+              ),
+            )
+          ],
+        )
       )
     );
   }

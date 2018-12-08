@@ -39,29 +39,32 @@ class StepperWidgetState extends State<StepperWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          GestureDetector(
-            onTap: _onClick,
-            child: selected == dotsCount - 1
-                ? Container(
-                    height: 60.0,
-                    padding: EdgeInsets.all(8.0),
-                    alignment: Alignment.center,
-                    child: Text(
-                      continueText,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent[200],
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(30.0)),
-                    ),
-                  )
-                : NextButton(_onClick)
+          Container(
+            child: GestureDetector(
+              onTap: _onClick,
+              child: selected == dotsCount - 1
+                  ? Container(
+                      width: 100.0,
+                      padding: EdgeInsets.all(12.0),
+                      margin: EdgeInsets.only(bottom: 14.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        continueText,
+                        style: TextStyle(color: Colors.white, fontSize: 14.0),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrangeAccent[200],
+                        borderRadius:
+                            const BorderRadius.all(const Radius.circular(30.0)),
+                      ),
+                    )
+                  : NextButton(_onClick)
+            ),
           ),
           Center(
             child: Container(
@@ -88,11 +91,11 @@ class StepperDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(4.0),
+      padding: EdgeInsets.all(6.0),
       child: Center(
         child: Container(
-          width: 12.0,
-          height: 12.0,
+          width: 10.0,
+          height: 10.0,
           decoration: BoxDecoration(
             color: selected ? Colors.deepOrangeAccent[200] : Colors.grey,
             borderRadius: const BorderRadius.all(const Radius.circular(6.0)),

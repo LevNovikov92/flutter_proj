@@ -4,11 +4,11 @@ import 'package:flutter_proj/domain/service.type.dart';
 
 abstract class StarterProfileRepo {
   void saveRole(Role role);
-  Role getRole();
+  Future<Role> getRole();
 
   void saveCity(City city);
-  City getCity();
+  Future<City> getCity();
 
   void saveServiceType(ServiceType serviceType);
-  ServiceType getServiceType();
+  Future<ServiceType> getServiceType();
 }
